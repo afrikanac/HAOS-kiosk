@@ -22,9 +22,6 @@ RUN apk update && apk add --no-cache \
      mesa-egl \
      mesa-gles \
      libdrm \
-     ln -s /usr/sbin/i2ctransfer /usr/bin/i2ctransfer && \
-     ln -s /usr/sbin/i2cget /usr/bin/i2cget && \
-     ln -s /usr/sbin/i2cset /usr/bin/i2cset
 ### X utils
      xdotool \
      xinput \
@@ -79,7 +76,9 @@ ENV DISPLAY=:0
 COPY xorg.conf.default /etc/X11/
 COPY userconf.lua /root/.config/luakit/
 COPY translations/*.yaml /translations/
-
+RUN ln -s /usr/sbin/i2ctransfer /usr/bin/i2ctransfer && \
+    ln -s /usr/sbin/i2cget /usr/bin/i2cget && \
+    ln -s /usr/sbin/i2cset /usr/bin/i2cset
 COPY run.sh /
 RUN chmod a+x /run.sh
 
