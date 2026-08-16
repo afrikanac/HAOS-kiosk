@@ -22,6 +22,7 @@ RUN apk update && apk add --no-cache \
      mesa-egl \
      mesa-gles \
      libdrm \
+     i2c-tools \
 ### X utils
      xdotool \
      xinput \
