@@ -1,7 +1,7 @@
 ################################################################################
 # Add-on: HAOS Kiosk Display (haoskiosk)
 # File: Dockerfile
-# Version: 1.3.1
+# Version: 1.3.1v1
 # Copyright Jeff Kosowsky
 # Date: April 2026
 ################################################################################
@@ -22,6 +22,9 @@ RUN apk update && apk add --no-cache \
      mesa-egl \
      mesa-gles \
      libdrm \
+     ln -s /usr/sbin/i2ctransfer /usr/bin/i2ctransfer && \
+     ln -s /usr/sbin/i2cget /usr/bin/i2cget && \
+     ln -s /usr/sbin/i2cset /usr/bin/i2cset
 ### X utils
      xdotool \
      xinput \
